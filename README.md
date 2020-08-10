@@ -22,14 +22,20 @@ This is the path to the topology.json file that is fetched from a public source 
 
 This is the path you would like to the completed topology.json file that can be used in your relay node for cardano-node startup
 
-### tmp_file
-
-This temporary file is used during script operation to combine both public and private topology files together and then flatten the results to remove (possible) duplicate entries.
+## License
 
 This script is created and released to the community under the Creative Commons Attribution Share Alike 4.0 License (https://creativecommons.org/licenses/by-sa/4.0/). Please feel free to copy, expand, and share this script in any way you see fit so long as you follow the licensing rules.
+
+### Author
 
 Author: Adam Dean (Crypto2099, Corp) https://crypto2099.io
 
 Telegram: @TheRealAdamDean
 
 My Pools: BUFFY & SPIKE
+
+## Thank
+
+All of my thanks go out to the fantastic Cardano SPO community for their constant inspiration, help, feedback, and support.
+
+We're all in this together!
