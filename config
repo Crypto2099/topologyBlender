@@ -1,7 +1,7 @@
 #!/bin/bash
 
 private_topology_path="/path/to/your/private.json"
-public_topology_path="/path/to/your/private.json"
+public_topology_path="/path/to/your/public.json"
 output_topology_path="/path/to/your/blended.json"
 tmp_file="./tmp.json"
 max_desired_peers=20
