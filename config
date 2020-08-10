@@ -3,5 +3,6 @@
 private_topology_path="/home/ubuntu/cardano-node/config/private.json"
 public_topology_path="/home/ubuntu/cardano-node/config/updater.json"
 output_topology_path="/home/ubuntu/cardano-node/config/blended.json"
+tmp_file="./tmp.json"
 max_desired_peers=20
 
