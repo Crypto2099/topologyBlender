@@ -20,23 +20,23 @@ After you have updated the "config" file you may simply run the script via "./bl
 
 ## Configuration Options
 
-### private_topology_path
+#### private_topology_path *(absolute path)*
 
 This is the path to the topology.json file that contains your private topology
 
-### public_topology_path
+#### public_topology_path *(absolute path)*
 
 This is the path to the topology.json file that is fetched from a public source (i.e. TopologyUpdater.sh, getBuddies.sh, etc)
 
-### output_topology_path
+#### output_topology_path *(absolute path)*
 
 This is the path you would like to the completed topology.json file that can be used in your relay node for cardano-node startup
 
-### max_desired_peers
+#### max_desired_peers *(integer)*
 
 This should be set to the maximum number of peers you would like in your topology. The blender will not place a hard limit on this but will warn you if your combined topology includes more than this number of peers.
 
-### max_peer_valency
+#### max_peer_valency *(integer)*
 
 If the combination of your private topology and public topology total more than **max_desired_peers** the script will attempt to reduce the number of remote peers by reducing valency in **public** relays to this specified maximum.
 
@@ -46,11 +46,11 @@ This script is created and released to the community under the Creative Commons 
 
 ### Author
 
-Author: Adam Dean (Crypto2099, Corp) https://crypto2099.io
+**Author:** Adam Dean (Crypto2099, Corp) https://crypto2099.io
 
-Telegram: @TheRealAdamDean
+**Telegram:** @TheRealAdamDean
 
-My Pools: BUFFY & SPIKE
+**My Pools:** BUFFY & SPIKE
 
 ## Thanks
 
