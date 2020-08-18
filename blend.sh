@@ -42,7 +42,7 @@ public_peers=$(jq '.Producers | map(.valency) | add' "${public_topology_path}")
 total_all_peers=$(($private_peers+$public_peers))
 echo -e "Found ${private_peers} private peers and ${public_peers} public peers."
 
-if [[ ($total_all_peers>$max_desired_peers) ]]; then
+if [[ ($total_all_peers -gt $max_desired_peers) ]]; then
   echo -e "${WARN}[WARNING]${NC} Total peers (${total_all_peers}) exceeds max desired peers (${max_desired_peers})!"
   echo -e "We will attempt to reduce the valency of remote peers to ${max_peer_valency}."
   jq '(.Producers[] | select(.valency > '"$max_peer_valency"') | .valency) |= '"$max_peer_valency" "${public_topology_path}" > $public_tmp
@@ -56,7 +56,7 @@ jq '.Producers=(flatten | group_by(.addr) | map(add))' "${blended}" > $output_to
 
 total_peers=$(jq '.Producers | map(.valency) | add' "${output_topology_path}")
 
-if [[ ($total_peers>$max_desired_peers) ]]; then
+if [[ ($total_peers -gt $max_desired_peers) ]]; then
   echo -e "${WARN}[WARNING]${NC} Found ${WARN}${total_peers}${NC} peers in blended topology!"
   echo -e "Consider increasing ${HELP}max_desired_peers${NC} or decreasing ${HELP}max_valency${NC} in the config file, or fetching fewer public peers."
 else
