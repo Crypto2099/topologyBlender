@@ -51,8 +51,10 @@ else
 fi
 
 echo -e "Flattening and grouping public and private topologies."
-jq -s '.[0].Producers=([.[].Producers]|flatten)|.[0]' "${private_topology_path}" "${public_tmp}" > $blended
-jq '.Producers=(flatten | group_by(.addr) | map(add))' "${blended}" > $output_topology_path
+## We only want to flatten the public peers in the case where we have multiple nodes on the same IP in private.json
+jq '.Producers=(.Producers | group_by(.addr) | map(add) | flatten)' "${public_tmp}" > $public_flat
+jq -s '.[0].Producers=([.[].Producers]|flatten)|.[0]' "${private_topology_path}" "${public_flat}" > $blended
+jq '.Producers=(flatten)' "${blended}" > $output_topology_path
 
 total_peers=$(jq '.Producers | map(.valency) | add' "${output_topology_path}")
 
