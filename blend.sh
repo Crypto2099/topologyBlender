@@ -30,6 +30,7 @@ if [[ ! -f "$public_topology_path" ]]; then
 fi
 
 public_tmp=./tp_tmp0.json
+public_flat=./tp_tmp4.json
 blended=./tp_tmp1.json
 merged=./tp_tmp2.json
 final=./tp_tmp3.json
