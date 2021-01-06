@@ -4,6 +4,10 @@
 
 To use, simply clone this repository to a location on your relay node machine.
 
+```
+git clone https://github.com/crypto2099/topologyBlender
+```
+
 You may need to change the permission of the scripts in this directory to be executable on your system 
 
 ```
@@ -50,7 +54,9 @@ This script is created and released to the community under the Creative Commons 
 
 **Telegram:** @TheRealAdamDean
 
-**My Pools:** BUFFY & SPIKE
+**Twitter:** @adamkdean
+
+**My Pool:** BUFFY
 
 ## Thanks
 
