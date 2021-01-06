@@ -109,9 +109,11 @@ if [[ $total_all_peers -gt $max_desired_peers ]]; then
 fi
 
 echo -e " ${INFO}Flattening and grouping public and private topologies.${NC}"
+## We only want to flatten the public peers in the case where we have multiple nodes on the same IP in private.json
+public_topology=$(jq '.Producers=(.Producers | group_by(.addr) | map(add) | flatten)' <<< $public_topology)
 blended="$private_topology$public_topology"
 blended=$(jq -s '.[0].Producers=([.[].Producers]|flatten)|.[0]' <<< $blended)
-jq '.Producers=(flatten | group_by(.addr) | map(add))' <<< $blended > $output_topology_path
+jq '.Producers=(flatten)' <<< $blended > $output_topology_path
 
 total_peers=$(jq '.Producers | map(.valency) | add' "${output_topology_path}")
 
@@ -122,5 +124,3 @@ else
   echo -e " ${SUCCESS}[DONE]${NC} Found ${SUCCESS}${total_peers}${NC} peers in blended topology."
   echo -e "    Finished topology file is located at:\n    ${INFO}$output_topology_path${NC}"
 fi
-
-# rm tp_tmp*.json
